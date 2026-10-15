@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRREE GAMER • Jogador</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="player-page">
+  <div class="bg-grid"></div>
+  <main id="app">
+    <section id="join-screen" class="screen glass-card">
+      <img src="/assets/trree-gamer-original.png" class="logo logo-small" alt="TRREE GAMER" />
+      <div class="eyebrow">QUIZ WEB • W3SCHOOLS</div>
+      <h1>Entre na partida</h1>
+      <p class="muted">Escaneie o QR Code mostrado pelo professor ou informe o PIN.</p>
+      <div class="join-layout">
+        <div>
+          <label>PIN DA SALA</label>
+          <input id="pin" class="pin-input" inputmode="numeric" maxlength="6" placeholder="000000" />
+          <label>SEU NOME</label>
+          <input id="name" maxlength="18" placeholder="Digite seu nome" />
+          <label>ESCOLHA SEU AVATAR</label>
+          <div id="avatar-grid" class="avatar-grid"></div>
+          <button id="join-btn" class="primary-btn big">🚀 ENTRAR NA SALA</button>
+          <div id="join-error" class="error-box hidden"></div>
+        </div>
+        <div class="join-preview">
+          <div class="device-card glow-card">
+            <div class="device-face" id="preview-avatar"></div>
+            <strong id="preview-name">Seu avatar</strong>
+            <span>Pronto para jogar!</span>
+          </div>
+          <div class="mini-rules">
+            <span>⚡ Mais rápido = mais pontos</span>
+            <span>🟢 Acerte para pontuar</span>
+            <span>🏆 Suba no pódio</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-note">Perguntas inspiradas nos conteúdos públicos do W3Schools.</div>
+    </section>
+
+    <section id="wait-screen" class="screen glass-card hidden">
+      <img src="/assets/trree-gamer-original.png" class="logo logo-tiny" alt="TRREE GAMER" />
+      <div class="status-pulse">● SALA CONECTADA</div>
+      <h1>Você entrou!</h1>
+      <div class="big-player-avatar" id="wait-avatar"></div>
+      <h2 id="wait-name">Jogador</h2>
+      <p class="muted">Aguarde o professor iniciar a partida.</p>
+      <div class="waiting-dots"><span></span><span></span><span></span></div>
+    </section>
+
+    <section id="game-screen" class="game-screen hidden">
+      <header class="game-topbar">
+        <div class="mini-brand"><img src="/assets/trree-gamer-original.png" alt="TRREE GAMER" /></div>
+        <div class="question-counter" id="question-counter">1 / 10</div>
+        <div class="timer-ring"><span id="timer">15</span></div>
+      </header>
+      <div class="player-score"><span id="player-avatar-mini"></span><strong id="player-score">0</strong> pts</div>
+      <section class="question-card">
+        <div class="topic-chip" id="topic">HTML</div>
+        <h1 id="question-text">Pergunta...</h1>
+      </section>
+      <section id="options" class="options-grid"></section>
+      <div id="answer-feedback" class="answer-feedback hidden"></div>
+      <section id="player-rank-strip" class="rank-strip"></section>
+    </section>
+
+    <section id="finish-screen" class="screen glass-card hidden">
+      <div class="eyebrow">FIM DA PARTIDA</div>
+      <div id="finish-avatar" class="big-player-avatar"></div>
+      <h1 id="finish-title">Parabéns!</h1>
+      <div class="result-score"><span id="finish-score">0</span><small> pontos</small></div>
+      <div id="finish-rank" class="rank-badge">#1</div>
+      <div id="finish-mini-board" class="mini-board"></div>
+      <button class="primary-btn" onclick="location.reload()">🔄 JOGAR NOVAMENTE</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/player.js"></script>
+</body>
+</html>

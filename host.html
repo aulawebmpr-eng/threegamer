@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRREE GAMER • Professor</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="host-page">
+  <div class="bg-grid"></div>
+  <main class="host-shell">
+    <header class="host-header">
+      <div class="brand-wrap">
+        <img src="/assets/trree-gamer-original.png" alt="TRREE GAMER" class="host-logo" />
+        <div><div class="eyebrow">MODO PROFESSOR</div><h1>TRREE GAMER QUIZ</h1></div>
+      </div>
+      <div class="host-actions">
+        <button id="fullscreen-btn" class="ghost-btn">⛶ TELA CHEIA</button>
+        <button id="create-btn" class="primary-btn">🎮 CRIAR SALA</button>
+      </div>
+    </header>
+
+    <section id="setup-panel" class="host-setup glass-card">
+      <div class="setup-main">
+        <span class="eyebrow">APRESENTAÇÃO DE PROGRAMADOR WEB</span>
+        <h2>Crie uma sala e mostre o QR Code para o grupo.</h2>
+        <p class="muted">Os participantes entram pelo celular, escolhem um avatar e respondem às 10 perguntas.</p>
+        <div class="feature-row">
+          <span>🔐 PIN automático</span><span>📱 QR Code</span><span>🎭 Avatares</span><span>🏆 Pódio</span><span>🔊 Sons</span>
+        </div>
+      </div>
+      <div class="setup-logo"><img src="/assets/trree-gamer-original.png" alt="TRREE GAMER" /></div>
+    </section>
+
+    <section id="lobby-panel" class="host-grid hidden">
+      <aside class="lobby-side glass-card">
+        <div class="pin-label">PIN DA SALA</div>
+        <div class="pin-code" id="pin-code">------</div>
+        <img id="qr-img" class="qr" alt="QR Code de entrada" />
+        <div class="scan-text">📱 Escaneie com a câmera do celular</div>
+        <div class="join-url" id="join-url"></div>
+        <button id="start-btn" class="primary-btn big full">🚀 INICIAR QUIZ</button>
+        <button id="next-btn" class="secondary-btn full hidden">➡️ PRÓXIMA PERGUNTA</button>
+        <button id="finish-btn" class="danger-btn full hidden">■ ENCERRAR PARTIDA</button>
+      </aside>
+
+      <section class="lobby-main">
+        <div class="stats-row">
+          <div class="stat-card"><span>👥</span><strong id="player-count">0</strong><small>jogadores</small></div>
+          <div class="stat-card"><span>❓</span><strong id="progress-count">0/10</strong><small>perguntas</small></div>
+          <div class="stat-card"><span>✅</span><strong id="answered-count">0</strong><small>respostas</small></div>
+        </div>
+        <div class="players-panel glass-card">
+          <div class="panel-head"><div><span class="eyebrow">SALA DE ESPERA</span><h2>Jogadores conectados</h2></div><div id="room-status" class="status-pill">AGUARDANDO</div></div>
+          <div id="players-list" class="players-list empty-list"><div class="empty-state">Aguardando os primeiros jogadores...</div></div>
+        </div>
+      </section>
+    </section>
+
+    <section id="question-panel" class="hidden">
+      <div class="live-top">
+        <div class="live-progress"><span id="live-counter">PERGUNTA 1/10</span><div class="progress-bar"><i id="progress-fill"></i></div></div>
+        <div class="live-timer" id="live-timer">15</div>
+      </div>
+      <div class="question-stage glass-card">
+        <div class="topic-chip" id="host-topic">HTML</div>
+        <div class="host-question" id="host-question">Pergunta</div>
+        <div id="host-options" class="host-options"></div>
+      </div>
+      <div class="live-board glass-card">
+        <div class="panel-head"><div><span class="eyebrow">AO VIVO</span><h2>Quem já respondeu?</h2></div><div id="answer-progress" class="answer-progress">0/0</div></div>
+        <div id="live-players" class="live-players"></div>
+      </div>
+    </section>
+
+    <section id="podium-panel" class="hidden podium-panel">
+      <div class="podium-header"><img src="/assets/trree-gamer-original.png" alt="TRREE GAMER" /><span class="eyebrow">RESULTADO FINAL</span><h1>🏆 PODI​UM TRREE GAMER</h1></div>
+      <div id="podium" class="podium"></div>
+      <button id="new-room-btn" class="primary-btn big">🎮 NOVA PARTIDA</button>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/host.js"></script>
+</body>
+</html>
