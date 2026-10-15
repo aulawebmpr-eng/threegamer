@@ -15,7 +15,7 @@ const server = http.createServer(app);
 const io = new Server(server);
 const rooms = new Map();
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname));
 app.get('/host', (_req, res) => res.sendFile(__dirname + '/public/host.html'));
 app.get('/health', (_req, res) => res.json({ ok: true, rooms: rooms.size }));
 
